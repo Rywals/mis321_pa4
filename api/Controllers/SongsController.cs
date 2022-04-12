@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -11,29 +13,32 @@ namespace api.Controllers1
     [Route("[controller]")]
     public class SongsController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
-        private readonly ILogger<SongsController> _logger;
-
-        public SongsController(ILogger<SongsController> logger)
-        {
-            _logger = logger;
+        [EnableCors("OpenPolicy")]
+        [HttpGet]
+        
+        public List<Song> Get(){
+            List<Song> temp = new List<Song>();
+            return temp;
         }
 
+        [EnableCors("OpenPolicy")]
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+        public void Post(){
+
+        }
+
+        [EnableCors("OpenPolicy")]
+        [HttpGet]
+
+        public void Put(){
+
+        }
+
+        [EnableCors("OpenPolicy")]
+        [HttpGet]
+
+        public void Delete(){
+            
         }
     }
 }
