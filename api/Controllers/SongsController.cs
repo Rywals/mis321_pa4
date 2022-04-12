@@ -6,6 +6,7 @@ using api.Models;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using api.Database;
 
 namespace api.Controllers1
 {
@@ -16,20 +17,20 @@ namespace api.Controllers1
         [EnableCors("OpenPolicy")]
         [HttpGet]
         
-        public string Get(){
-            // List<Song> temp = new List<Song>(){};
-            // return temp;
-            return "test";
+        public List<Song> Get(){
+            ReadSong readSong = new ReadSong();
+            List<Song> temp = readSong.Read();
+            return temp;
         }
 
         [EnableCors("OpenPolicy")]
-        [HttpGet]
+        [HttpPost]
         public void Post(){
 
         }
 
         [EnableCors("OpenPolicy")]
-        [HttpGet]
+        [HttpPut]
 
         public void Put(){
 
