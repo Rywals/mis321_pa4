@@ -1,3 +1,6 @@
+var baseurl = "https://localhost:3001/api/Songs";
+
+
 
 function findSongs(){
     var url = "https://www.songsterr.com/a/ra/songs.json?pattern="

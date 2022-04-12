@@ -16,9 +16,10 @@ namespace api.Controllers1
         [EnableCors("OpenPolicy")]
         [HttpGet]
         
-        public List<Song> Get(){
-            List<Song> temp = new List<Song>();
-            return temp;
+        public string Get(){
+            // List<Song> temp = new List<Song>(){};
+            // return temp;
+            return "test";
         }
 
         [EnableCors("OpenPolicy")]
@@ -38,7 +39,7 @@ namespace api.Controllers1
         [HttpGet]
 
         public void Delete(){
-            
+
         }
     }
 }
