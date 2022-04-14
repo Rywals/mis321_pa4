@@ -11,20 +11,20 @@ namespace api.Database
     public class CreateSong : ICreateSong
     {
         public List<Song> Playlist {get; set;}
-        public void Create(){
+        public void Create(string value){
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
             using var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = @"Insert INTO songs(id, title, timestamp, removesong) VALUES(@id, @title, @timestamp, @removesong)";
+            string stm = @"Insert INTO songs(title, time_stamp, favorite) VALUES(@title, @time_stamp, @favorite)";
 
             using var cmd = new MySqlCommand(stm, con);
             
-            cmd.Parameters.AddWithValue("@id", 1);
-            cmd.Parameters.AddWithValue("@title", "test");
-            cmd.Parameters.AddWithValue("@timestamp", DateTime.Now);
-            cmd.Parameters.AddWithValue("@removesong", "n");
+            //cmd.Parameters.AddWithValue("@id", 1);
+            cmd.Parameters.AddWithValue("@title", value);
+            cmd.Parameters.AddWithValue("@time_stamp", DateTime.Now);
+            cmd.Parameters.AddWithValue("@favorite", "n");
 
             cmd.Prepare();
 

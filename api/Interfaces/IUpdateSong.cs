@@ -1,7 +1,9 @@
+using api.Models;
+
 namespace api.Interfaces
 {
     public interface IUpdateSong
     {
-         public void Update();
+         public void Update(int id);
     }
 }

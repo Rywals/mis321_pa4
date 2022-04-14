@@ -8,7 +8,7 @@ namespace api.Models
         public int SongID {get; set;}
         public string SongTitle {get; set;}
         public DateTime SongTimestamp {get; set;}
-        public string Deleted { get; set; }
+        public string Favorited { get; set; }
 
         public override string ToString() // overriding the ToString for the song class to include all properties of the class
         {
@@ -16,7 +16,7 @@ namespace api.Models
         }
 
         public string ToFile(){
-            return SongID + "#" + SongTitle + "#" + SongTimestamp + "#" + Deleted;
+            return SongID + "#" + SongTitle + "#" + SongTimestamp + "#" + Favorited;
         }
 
         public int CompareTo(Song temp) { // since I am using IComparable, I need a CompareTo for "contract"

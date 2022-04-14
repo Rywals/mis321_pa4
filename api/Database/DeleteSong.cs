@@ -6,7 +6,7 @@ namespace api.Database
 {
     public class DeleteSong : IDeleteSong
     {
-        public void Delete()
+        public void Delete(int id)
         {
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
@@ -14,9 +14,11 @@ namespace api.Database
             using var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = @"DROP ROW IF EXISTS songs";
+            string stm = @"DELETE FROM songs WHERE song_id = @song_id";
             
             using var cmd = new MySqlCommand(stm, con);
+
+            cmd.Parameters.AddWithValue("@song_id", id);
             cmd.ExecuteNonQuery(); 
         }
 

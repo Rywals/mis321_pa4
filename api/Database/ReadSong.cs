@@ -24,7 +24,7 @@ namespace api.Database
             using MySqlDataReader rdr = cmd.ExecuteReader();
 
             while(rdr.Read()){
-                Song temp = new Song(){SongID = rdr.GetInt32(0), SongTitle = rdr.GetString(1), SongTimestamp = rdr.GetDateTime(2), Deleted = rdr.GetString(1)};
+                Song temp = new Song(){SongID = rdr.GetInt32(0), SongTitle = rdr.GetString(1), SongTimestamp = rdr.GetDateTime(2), Favorited = rdr.GetString(3)};
                 playlist.Add(temp);
             }
             
