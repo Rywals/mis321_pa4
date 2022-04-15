@@ -24,3 +24,13 @@
     max-width: fit-content;
     padding: 5px;
 }
+.buttonDelete{
+    color: darkred;
+    max-width: 5px;
+    position: relative;
+}
+.buttonFavorite{
+    
+    max-width: 10px;
+    position: relative;
+}
